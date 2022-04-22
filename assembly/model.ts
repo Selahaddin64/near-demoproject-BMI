@@ -23,10 +23,10 @@ export class BMI {
   id: u32;
   task: string;
   done: bool;
-  weight: i64;
-  height: f64;
+  weight: f32;
+  height: f32;
 
-  constructor(task: string, weight: i64, height: f64) {
+  constructor(task: string, weight: f32, height: f32) {
     this.id = math.hash32<string>(task);
     this.task = task;
     this.done = false;
@@ -34,7 +34,7 @@ export class BMI {
     this.height = height;
   }
 
-  static calculate(task: string, weight: i64, height: f64): BMI{
+  static calculate(task: string, weight: f32, height: f32): BMI{
     // weight / height ** 2
     let bmi = weight / (height * height);
 

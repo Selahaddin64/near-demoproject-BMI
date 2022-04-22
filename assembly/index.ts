@@ -5,7 +5,7 @@ import { BMI, PartialBMI } from "./model";
 // export the create method. This acts like an endpoint
 // that we'll be able to call from our web app.
 
-export function create(task: string, weight: i64, height: f64): BMI {
+export function create(task: string, weight: f32, height: f32): BMI {
   // use the Todo class to persist the todo data
   return BMI.calculate(task, weight, height);
 }
