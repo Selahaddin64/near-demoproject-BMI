@@ -5,8 +5,6 @@ import { AccountId } from "../utils"
 export const bmis = new PersistentUnorderedMap<u32, BMI>("BMI");
 
 // It contain static methods to read and write data from and to the bmis PersistentUnorderedMap.
-
-// PartialTodo class
 @nearBindgen
 export class UpdatedBMI {
   output: string;
