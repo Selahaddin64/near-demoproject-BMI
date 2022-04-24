@@ -1,27 +1,33 @@
-// The entry file of your WebAssembly module.
+import { BMI, UpdatedBMI } from "./model";
 
-import { BMI, PartialBMI } from "./model";
+// export the create method. This acts like an endpoint that we'll be able to call from our web app.
 
-// export the create method. This acts like an endpoint
-// that we'll be able to call from our web app.
+// near call $CONTRACT create '{"weight":50.1, "height":1.70}' --accountId bay_odyolog.testnet
 
-export function create(task: string, weight: f32, height: f32): BMI {
-  // use the Todo class to persist the todo data
-  return BMI.calculate(task, weight, height);
+export function create(weight: f32, height: f32): BMI {
+
+  return BMI.calculate(weight, height);
 }
 
-export function getById(id: u32): BMI {
-  return BMI.findById(id);
+// near view $CONTRACT getBMIById '{"id": }'
+
+export function getBMIById(id: u32): BMI {
+  return BMI.findBMIById(id);
 }
 
-export function get(offset: u32, limit: u32 = 10): BMI[] {
-  return BMI.find(offset, limit);
+//  near view $CONTRACT listAllBMI '{"offset":0}' --accountId bay_odyolog.testnet
+
+export function listAllBMI(offset: u32, limit: u32 = 10): BMI[] {
+  return BMI.findAllBMI(offset, limit);
 }
 
-export function update(id: u32, updates: PartialBMI): BMI {
-  return BMI.findByIdAndUpdate(id, updates);
+// near call $CONTRACT update '{"id":, "updates":{"weight":61.1, "height":1.75} }' --accountId bay_odyolog.testnet
+
+export function update(id: u32, updates: UpdatedBMI): BMI {
+  return BMI.findBMIByIdAndUpdate(id, updates);
 }
 
+// near call $CONTRACT del '{"id": }' --accountId bay_odyolog.testnet
 export function del(id: u32): void {
-  BMI.findByIdAndDelete(id);
+  BMI.findBMIByIdAndDelete(id);
 }
