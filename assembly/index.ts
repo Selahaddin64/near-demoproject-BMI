@@ -4,7 +4,7 @@ import { BMI, UpdatedBMI } from "./model";
 
 // near call $CONTRACT create '{"weight":50.1, "height":1.70}' --accountId bay_odyolog.testnet
 
-export function create(weight: f32, height: f32): BMI {
+export function createBMI(weight: f32, height: f32): BMI {
 
   return BMI.calculate(weight, height);
 }
@@ -23,11 +23,11 @@ export function listAllBMI(offset: u32, limit: u32 = 10): BMI[] {
 
 // near call $CONTRACT update '{"id":, "updates":{"weight":61.1, "height":1.75} }' --accountId bay_odyolog.testnet
 
-export function update(id: u32, updates: UpdatedBMI): BMI {
+export function updateBMI(id: u32, updates: UpdatedBMI): BMI {
   return BMI.findBMIByIdAndUpdate(id, updates);
 }
 
 // near call $CONTRACT del '{"id": }' --accountId bay_odyolog.testnet
-export function del(id: u32): void {
+export function delBMI(id: u32): void {
   BMI.findBMIByIdAndDelete(id);
 }
