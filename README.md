@@ -1,5 +1,8 @@
 # near-demoproject-BMI
 
+This project developed in Patika.dev's Near Bootcamp.
+Here is Loom video : https://www.loom.com/share/ae7f29fec1af439a8bfe1231785d0da7
+
 ## What is the project about ? 
 The main idea is to adapt the body mass index calculation to the blockchain part. With Web3 technology, you can safely continue to calculate your body mass index. The only process required for this is to have a NEAR wallet. Then you can easily calculate your body mass index. Your body mass index calculation process is completed.
 
