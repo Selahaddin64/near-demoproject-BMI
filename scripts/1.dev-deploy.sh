@@ -9,7 +9,7 @@ echo "Step 1: Build the contract (may take a few seconds)"
 echo ---------------------------------------------------------
 echo
 
-yarn build
+yarn build:release
 
 echo
 echo
@@ -24,7 +24,7 @@ echo
 # near dev-deploy ./build/debug/simple.wasm
 
 # comment the line below to deploy the other example contract
-near dev-deploy ./build/debug/bmi.wasm
+near dev-deploy ./build/release/bmi.wasm
 
 echo
 echo
@@ -39,8 +39,10 @@ echo "    see example below (this may not work on Windows)"
 echo
 echo ---------------------------------------------------------
 echo 'export CONTRACT=<YOUR_DEV_ACCOUNT>'
+echo 'export OWNER=<YOUR_OWNER_ACCOUNT>'
+echo "near call \$CONTRACT init '{}' --accountId \$OWNER"
 # uncomment this line for a useful hint when using the singleton style
-# echo "near call \$CONTRACT init --accountId \$CONTRACT"
+# echo "near call \$CONTRACT init --accountId \$OWNER"
 echo ---------------------------------------------------------
 echo
 

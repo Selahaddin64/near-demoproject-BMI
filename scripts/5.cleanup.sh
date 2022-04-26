@@ -10,23 +10,21 @@ echo ---------------------------------------------------------
 echo
 
 [ -z "$CONTRACT" ] && echo "Missing \$CONTRACT environment variable" && exit 1
-[ -z "$BENEFICIARY" ] && echo "Missing \$BENEFICIARY environment variable" && exit 1
-[ -z "$CONTRACT" ] || echo "Found it! \$CONTRACT is set to [ $CONTRACT ]"
-[ -z "$BENEFICIARY" ] || echo "Found it! \$BENEFICIARY is set to [ $BENEFICIARY ]"
+[ -z "$OWNER" ] && echo "Missing \$OWNER environment variable" && exit 1
 
 echo
 echo
 echo ---------------------------------------------------------
-echo "Step 1: Delete $CONTRACT, setting $BENEFICIARY as beneficiary"
+echo "Step 1: Delete $CONTRACT, setting $OWNER as beneficiary"
 echo ---------------------------------------------------------
 echo
-near delete $CONTRACT $BENEFICIARY
+near delete $CONTRACT $OWNER
 
 echo
 echo ---------------------------------------------------------
 echo "Step 2: Clean up project folders"
 echo ---------------------------------------------------------
 echo
-yarn clean
+rm -rf ./neardev
 
 exit 0
