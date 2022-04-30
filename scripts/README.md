@@ -33,8 +33,8 @@ It uses the following setup:
   _helper scripts_
   ```sh
   1.dev-deploy.sh                # helper: build and deploy contracts
-  2.create-subaccounts.sh   # generate a summary report of the contract state
-  4.report.sh               # viewing methods on ContractPromise
+  2.create-subaccounts.sh        # generate a summary report of the contract state
+  4.report.sh                    # viewing methods on ContractPromise
   5.cleanup.sh                   # helper: delete build and deploy artifacts
   ```
 
