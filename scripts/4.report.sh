@@ -9,16 +9,18 @@ echo "CONTRACT is [ $CONTRACT ]"
 echo
 echo
 
+echo "near view  $CONTRACT listAllBMI '{"offset":"$1"}' --accountId $OWNER"
+echo \$Offset is [ $1 ] '(the Offset Value)'
+near view  $CONTRACT listAllBMI '{"offset":'"$1"'}' --accountId $OWNER
+echo
+echo
+
+
 echo "--------------------------------------------"
 echo Report for $CONTRACT
 echo "--------------------------------------------"
-echo "near view $CONTRACT getBMIById '{"id":$TypeId}'"
-echo \$TypeId is [ $TypeId ] '(the Type Id)'
-near view $CONTRACT getBMIById '{"id":'$TypeId'3150274785}'
+echo "near view $CONTRACT getBMIById '{"id":"$2"}'"
+echo \$TypeId is [ $2 ] '(the Type Id)'
+near view $CONTRACT getBMIById '{"id":'"$2"'}'
 echo
 
-echo "near view  $CONTRACT listAllBMI '{"offset":$Offset_Value}' --accountId $OWNER"
-echo \$Offset is [ $Offset_Value ] '(the Offset Value)'
-near view  $CONTRACT listAllBMI '{"offset":'$Offset_Value'0}' --accountId $OWNER
-echo
-echo

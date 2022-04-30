@@ -18,25 +18,24 @@ echo ---------------------------------------------------------
 echo "Step 1: We must add and calculate the default baselines just before deployment"
 echo ---------------------------------------------------------
 echo "About to call createBMI() on the contract"
-echo near call $CONTRACT createBMI '{"weight":$weight, "height":$height}' --accountId $OWNER
+echo near call $CONTRACT createBMI '{"weight":"$1", "height":"$2"}' --accountId $OWNER
 echo
 echo \$CONTRACT is $CONTRACT
 echo \$OWNER is $OWNER
-echo \$weight is [ $weight ] '(the weight)'
-echo \$height is [ $height ] '(the height)'
-
+echo \$weight is [ $1 ] '(the weight value)'
+echo \$height is [ $2 ] '(the height value)'
 echo
-near call $CONTRACT createBMI '{"weight":'$weight'50.5, "height":'$height'1.75}' --accountId $OWNER
+near call $CONTRACT createBMI '{"weight": '"$1"', "height": '"$2"'}' --accountId $OWNER
 
 echo
 echo
 echo ---------------------------------------------------------
 echo "Step 2: We can update the data you have saved by accessing it."
 echo ---------------------------------------------------------
-echo \$TypeId is [ $TypeId ] '(the Type Id)'
+echo \$TypeId is [ $3 ] '(the Type Id)'
 echo
 
-near call $CONTRACT updateBMI '{"id":'$TypeId'2286173548, "updates":{"weight":'$weight'60.6, "height":'$height'1.80} }' --accountId $OWNER
+near call $CONTRACT updateBMI '{"id":'"$3"', "updates":{"weight":'"$1"', "height":'"$2"'} }' --accountId $OWNER
 
 
 echo
@@ -47,4 +46,4 @@ echo ---------------------------------------------------------
 echo
 echo
 
-near call $CONTRACT delBMI '{"id":'$TypeId'2286173548}' --accountId $OWNER
+near call $CONTRACT delBMI '{"id":'"$3"'}' --accountId $OWNER
